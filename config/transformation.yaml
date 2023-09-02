@@ -1,0 +1,49 @@
+target_column:
+- Cost
+
+numerical_columns:
+- Artist_Reputation
+- Height
+- Width
+- Weight
+- Price_Of_Sculpture
+- Base_Shipping_Price
+
+categorical_columns:
+- Customer_Id
+- Artist_Name
+- Material
+- International
+- Express_Shipment
+- Installation_Included
+- Fragile
+- Customer_Information
+- Remote_Location
+- Scheduled_Date
+- Delivery_Date
+- Customer_Location
+- Transport
+
+drop_columns:
+- Artist_Name
+- Transport 
+- Customer_Location
+- Delivery_Date
+- Customer_Id
+- Scheduled_Date
+
+outlier_columns:
+- Price_Of_Sculpture
+- Weight
+- Width 
+- Cost 
+- Height 
+
+scaling_columns:
+- Artist_Reputation
+- Height
+- Width
+- Weight
+- Price_Of_Sculpture
+- Base_Shipping_Price
+- Cost

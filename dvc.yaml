@@ -1,0 +1,39 @@
+stages:
+  data_ingestion_stage:
+    cmd: python Cost_prediction/pipeline/training_pipeline/01_data_ingestion.py
+    deps:
+      - Cost_prediction/entity/config_entity.py
+      - Cost_prediction/entity/artifact_entity.py
+      - Cost_prediction/components/data_ingestion.py
+      - config/config.yaml
+      - Cost_prediction/pipeline/training_pipeline/01_data_ingestion.py
+    outs:
+      - artifact/data_ingestion/
+
+  data_transformation_stage:
+    cmd: python Cost_prediction/pipeline/training_pipeline/03_data_transformation.py
+    deps:
+      - Cost_prediction/components/data_transformation.py
+      - config/config.yaml
+      - Cost_prediction/pipeline/training_pipeline/03_data_transformation.py
+      - artifact/data_ingestion/
+    outs:
+      - artifact/data_transformation/
+
+
+  model_trainer_stage:
+    cmd: python Cost_prediction/pipeline/training_pipeline/05_model_trainer.py
+    deps:
+      - Cost_prediction/components/model_trainer.py
+      - config/config.yaml
+      - Cost_prediction/pipeline/training_pipeline/05_model_trainer.py
+      - artifact/data_transformation/
+      - params.yaml
+    params:
+      - Parameters.learning_rate
+      - Parameters.max_depth
+      - Parameters.n_estimators
+      - Experiment
+    outs:
+      - artifact/model_training/
+

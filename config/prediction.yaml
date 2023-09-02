@@ -1,0 +1,34 @@
+categorical_columns:
+  Customer_Information:
+  - Working Class
+  - Wealthy
+  Express_Shipment:
+  - 'No'
+  - 'Yes'
+  Fragile:
+  - 'Yes'
+  - 'No'
+  Installation_Included:
+  - 'Yes'
+  - 'No'
+  International:
+  - 'No'
+  - 'Yes'
+  Material:
+  - Clay
+  - Stone
+  - Brass
+  - Wood
+  - Bronze
+  - Aluminium
+  - Marble
+  Remote_Location:
+  - 'No'
+  - 'Yes'
+numerical_columns:
+- Artist_Reputation
+- Height
+- Width
+- Weight
+- Price_Of_Sculpture
+- Base_Shipping_Price

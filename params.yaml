@@ -1,0 +1,6 @@
+Model_name: XGBoost_Regression
+Parameters:
+  learning_rate: 0.025232348639505898
+  max_depth: 3
+  n_estimators: 499
+R2_score: '0.7847198586873778'

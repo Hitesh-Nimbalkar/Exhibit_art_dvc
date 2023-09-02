@@ -1,0 +1,23 @@
+ColumnNames:
+  Artist Name: object
+  Artist Reputation: float64
+  Base Shipping Price: float64
+  Cost: float64
+  Customer Id: object
+  Customer Information: object
+  Customer Location: object
+  Delivery Date: object
+  Express Shipment: object
+  Fragile: object
+  Height: float64
+  Installation Included: object
+  International: object
+  Material: object
+  Price Of Sculpture: float64
+  Remote Location: object
+  Scheduled Date: object
+  Transport: object
+  Weight: float64
+  Width: float64
+FileName: train.csv
+NumberOfColumns: 20
