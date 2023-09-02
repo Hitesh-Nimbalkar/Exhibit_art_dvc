@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instance Prediction - Expense</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="flex max-w-[1500px] w-[100%] justify-center m-auto py-5">
+    <!-- Logos -->
+    <img src="https://successanalytics.in/logo.ab81d45e.png" alt="Logo" class="fixed top-0 left-0 w-[50px] opacity-0 hover:opacity-100" />
+    <img src="https://successanalytics.in/logo.ab81d45e.png" alt="Logo" class="fixed bottom-0 left-0 w-[50px] opacity-0 hover:opacity-100" />
+    <img src="https://successanalytics.in/logo.ab81d45e.png" alt="Logo" class="fixed top-0 right-0 w-[50px] opacity-0 hover:opacity-100" />
+    <img src="https://successanalytics.in/logo.ab81d45e.png" alt="Logo" class="fixed bottom-0 right-0 w-[50px] opacity-0 hover:opacity-100" />
+    <!-- Logos -->
+
+
+    <!-- Input Form Section -->
+    <section class="rounded-md bg-black/70 p-2 w-1/2">
+      <div class="flex items-center justify-center bg-white px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
+        <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+          <div class="mb-2">
+            <!-- Your logo code here -->
+          </div>
+          <h2 class="text-2xl font-bold leading-tight text-black">Instance Prediction - Expense</h2>
+          <form action="/predict" method="POST" class="mt-8">
+            <div class="flex space-x-5">
+              <!-- Numerical Columns (Left Half) -->
+              <div class="w-1/2">
+                {% for column in numerical_columns %}
+                <div>
+                  <label for="{{ column }}" class="text-base font-medium text-gray-900">{{ column }}</label>
+                  <div class="mt-2">
+                    <input
+                      name="{{ column }}"
+                      class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="float"
+                      placeholder="Enter {{ column }}"
+                      required
+                    >
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+
+              <!-- Categorical Columns (Right Half) -->
+              <div class="w-1/2">
+                {% for category, values in categorical_columns.items() %}
+                <div>
+                  <label for="{{ category }}" class="text-base font-medium text-gray-900">{{ category }}</label>
+                  <div class="mt-2">
+                    <select
+                      name="{{ category }}"
+                      class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      required
+                    >
+                      {% for value in values %}
+                      <option value="{{ value }}">{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+              >
+                Submit
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="ml-2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Input Form Section Ends -->
+  </div>
+    <!-- Result Section Begins -->
+    <section class="flex items-center justify-center h-screen">
+      <div class="rounded-md bg-black/70 p-2 w-1/2">
+          <div class="flex items-center justify-center bg-white px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
+              <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+                  <h2 class="text-2xl font-bold leading-tight text-black">Instance Prediction - Expense Result</h2>
+
+                  {% if prediction_type == 'instance' %}
+                  <div class="mt-8">
+                      <h3 class="text-lg font-medium text-black">Predicted Expense:</h3>
+                      <p class="text-xl font-bold text-black">{{ predicted_expense }}</p>
+                  </div>
+                  {% endif %}
+
+                  <!-- Add more result details or any other information here as needed -->
+                  <div class="mt-8">
+                      <!-- For example, you can display additional result information here. -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Result Section Ends -->
+</body>
+</html>
+
+
+
